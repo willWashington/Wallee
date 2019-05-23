@@ -1,0 +1,10 @@
+Wallee is a web platform based on a design by Lance Hilliard called Wally.
+    https://github.com/lancehilliard/Wally
+
+Wallee will present a user with a setup screen that allows them to choose various display options.
+Wallee will then take the chosen display selection and display a series of user specified websites slowly, swapping between each
+    site every time the bottom of the page is reached or after a specific period of time.
+
+Wallee will be designed as "fridge tech".. something you can put on your refrigerator or cabinet door.
+
+Wallee will respond to voice commands and may incorporate Alexa control.

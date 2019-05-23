@@ -1,0 +1,49 @@
+body {
+    background-color: lightslategray;
+}
+
+* {
+    padding: 3px;
+}
+
+
+div {
+    border: 2px solid red;
+}
+
+div#intro { 
+    width: 50%;
+    height: 20%;
+    top: 80%;
+    left: 25%;
+    position: absolute;
+   }
+
+div#dataCollection {
+    width: 15%;
+    height: 35%;
+    position: absolute;    
+}
+
+table {
+    -webkit-box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.75);
+    box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.75);
+}
+
+td, th {
+    border:none;
+}
+
+#display {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 1200px;
+    height: 720px;
+    -webkit-box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.75);
+    box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.75);
+}
