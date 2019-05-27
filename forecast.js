@@ -55,7 +55,8 @@ function drawWeather( d ) {
     }
 
     for (i=0; i < d.list.length; i++) {
-
+            //rebuild this functionality - simplify - create accurate data
+            //test each value before moving forward
 
     }
 
