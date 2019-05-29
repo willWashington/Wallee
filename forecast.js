@@ -1,18 +1,30 @@
+
+
+
+
+
+
+
+
+
 //Variables
-    var displayDates = [];
-    var weatherPredictions = [];
+    var displayDates = []; //days to display
+    var weatherPredictions = [];     
     var temperatures = [];
     var dayTemps = [];
-    var currentDate;
-    var currentTime;
+    var day1Temp = 0;
+    var day2Temp = 0;
+    var day3Temp = 0;
+    var day4Temp = 0;
+    var day5Temp = 0;
 
 //EndVar
 
 //Notes
-    //figure out how to get temperature based on the hour of the day it is currently
-    //somehow select the correct temperature from the array based on what day it is and what time it is
+    //NEED:        
+        //data parsing engine (json)
+        //comparison engine - average temps for each day
 
-    //build an engine that determines what time it is currently and then selects the correct time frame within the day's list of data
 //EndNotes
 
 //Functions
@@ -26,12 +38,132 @@ function weatherBalloon( cityID ) {
         .then(function(resp) { return resp.json() }) // Convert data to json
             .then(function(data) {
                 console.log(data);
-                drawWeather(data);
+                // drawWeather(data);                 
+                parseData(data);
     })
     .catch(function() {
         // catch any errors
     });
 }
+
+function parseData(data) {    
+    //Parse dates and add unique dates to the displayDates array
+    for (i=0; i < data.list.length; i++) { //foreach item in the data set
+        var countedDate = (data.list[i].dt_txt.split(' ')[0]);        
+        if (displayDates.includes(countedDate)) {
+            continue;
+        } else {
+            displayDates.push(countedDate);            
+        }
+    }
+    day1(data);
+    day2(data);
+    day3(data);
+    day4(data);
+    day5(data);
+    console.log(day1Temp + " temp1");
+    console.log(day2Temp + " temp2");
+    console.log(day3Temp + " temp3");
+    console.log(day4Temp + " temp4");
+    console.log(day5Temp + " temp5");
+
+    //End parse dates
+}
+
+
+//these day calls are working, but they are returning 75ish degrees which is wrong
+//need to further parse this and only include data within daylight hours
+//something like if (hours < 8 PM military)
+
+
+function day1(data) {
+    //Store average day1 temp in daily temp variables
+    var counter = 0;
+    var tempTemp = 0;
+    for (x=0; x < data.list.length; x++) { //foreach item in the data set
+        if (data.list[x].dt_txt.split(' ')[0] == displayDates[0]){
+            var tempFloat = parseFloat(data.list[x].main.temp);
+            tempTemp += tempFloat;            
+            counter = counter+1;                        
+        }
+    }
+    console.log("in1");
+    // dayTemps.splice(0,0,findAverage(tempTemp / counter));
+    day1Temp = tempTemp / counter;
+    day1Temp = day1Temp.toFixed(2);
+    day1Temp = ((day1Temp-273.15)*1.8+32).toFixed(2);
+}    //End store
+
+function day2(data) {
+    //Store average day1 temp in daily temp variables
+    var counter = 0;
+    var tempTemp = 0;
+    for (x=0; x < data.list.length; x++) { //foreach item in the data set
+        if (data.list[x].dt_txt.split(' ')[0] == displayDates[1]){
+            var tempFloat = parseFloat(data.list[x].main.temp);
+            tempTemp += tempFloat;            
+            counter = counter+1;                        
+        }
+    }
+    day2Temp = tempTemp / counter;
+    day2Temp = day2Temp.toFixed(2);
+    day2Temp = ((day2Temp-273.15)*1.8+32).toFixed(2);
+}    //End store
+
+function day3(data ) {
+    //Store average day1 temp in daily temp variables
+    var counter = 0;
+    var tempTemp = 0;
+    for (x=0; x < data.list.length; x++) { //foreach item in the data set
+        if (data.list[x].dt_txt.split(' ')[0] == displayDates[2]){
+            var tempFloat = parseFloat(data.list[x].main.temp);
+            tempTemp += tempFloat;            
+            counter = counter+1;                        
+        }
+    }
+    day3Temp = tempTemp / counter;
+    day3Temp = day3Temp.toFixed(2);
+    day3Temp = ((day3Temp-273.15)*1.8+32).toFixed(2);
+}    //End store
+
+function day4(data ) {
+    //Store average day1 temp in daily temp variables
+    var counter = 0;
+    var tempTemp = 0;
+    for (x=0; x < data.list.length; x++) { //foreach item in the data set
+        if (data.list[x].dt_txt.split(' ')[0] == displayDates[3]){
+            var tempFloat = parseFloat(data.list[x].main.temp);
+            tempTemp += tempFloat;            
+            counter = counter+1;                        
+        }
+    }
+    day4Temp = tempTemp / counter;
+    day4Temp = day4Temp.toFixed(2);
+    day4Temp = ((day4Temp-273.15)*1.8+32).toFixed(2);
+}    //End store
+
+function day5(data ) {
+    //Store average day1 temp in daily temp variables
+    var counter = 0;
+    var tempTemp = 0;
+    for (x=0; x < data.list.length; x++) { //foreach item in the data set
+        if (data.list[x].dt_txt.split(' ')[0] == displayDates[4]){
+            var tempFloat = parseFloat(data.list[x].main.temp);
+            tempTemp += tempFloat;            
+            counter = counter+1;                        
+        }
+    }
+    day5Temp = tempTemp / counter;
+    day5Temp = day5Temp.toFixed(2);
+    day5Temp = ((day5Temp-273.15)*1.8+32).toFixed(2);
+}    //End store
+
+function findAverage(temp, counter){
+    var average = 0;
+    average = temp / counter;
+    return average;
+}
+
 
 function getDayName(dateStr, locale)
 {
