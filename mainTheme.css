@@ -4,13 +4,8 @@ body {
 
 * {
     padding: 3px;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;    
 }
-
-/* div {
-    border: 2px solid red;
-} */
 
 .days {
     margin: 2%;
@@ -18,13 +13,14 @@ body {
     width: 15%;
     left: 49%;
     text-align: center;
+    color: black;
     -webkit-box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.75);
     box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.75);
     /* padding: 8%; */
 }
 
-#display {    
+#display {
     position: absolute;
     top: 10%;
     left: 15%;
@@ -33,17 +29,13 @@ body {
     width: 70%;
     height: 70%;
     overflow: hidden;
-
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    font-size: 1.3em;
-    color: #fff;
-    text-shadow: .1em .1em 0 rgba(0,0,0,0.3);
+    font-size: 1.3em;        
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-image: linear-gradient(to right top, #99bbcb, #a5c7d7, #b1d4e2, #bde0ee, #c9edfa); */
-
+    background-image: linear-gradient(to right top, #99bbcb, #a5c7d7, #b1d4e2, #bde0ee, #c9edfa);
     -webkit-box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.75);
     box-shadow: 7px 7px 12px -2px rgba(0,0,0,0.75);
@@ -51,15 +43,18 @@ body {
 
 #forecast {
     width: 95%;
-    height: 95%;
+    height: 95%;    
 }
 
 h1 {
     margin: 0 auto;
     font-size: 2.2em;
-    text-align: center;
-    color: #fff;
+    text-align: center;    
     font-size: 5em;
+}
+
+#indexIcon {
+    margin-left: 30px;
 }
 #display.sunny {
     background-image: linear-gradient(to right top, #ff4e50, #ff713e, #ff932b, #ffb41d, #f9d423);

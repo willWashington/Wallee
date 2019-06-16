@@ -8,3 +8,5 @@ Wallee will then take the chosen display selection and display a series of user 
 Wallee will be designed as "fridge tech".. something you can put on your refrigerator or cabinet door.
 
 Wallee will respond to voice commands and may incorporate Alexa control.
+
+Possibly pull in Shopify up/down status from https://status.shopify.com/# subscription
