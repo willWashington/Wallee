@@ -46,7 +46,15 @@ var day5Day = getDayName(daysToDisplay[4]);
 //Functions
 window.onload = function() {
     weatherBalloon( 4647282 ); //allow user to input the city and convert it to city code by querying city.list.json
+    setTimeout(loadNextPage, 10000);
 }
+
+function loadNextPage() {
+    window.location = "https://willwashington.github.io/Wallee/index.html"
+    //window.location.pathname = 'C:/Users/NEO/OneDrive/repos/C%23%20-%20Web%20-%20Core%20-%20ASP.NET%20-%20etc/web/wallee/forecast.html'
+    //window.location.pathname = 'https://willwashington.github.io/Wallee/forecast.html'
+    //change this to the location of the website on disk or in repo
+  }
 
 function weatherBalloon( cityID ) {
     var key = '0a3f9d42c2422fd058ffc13886c2cc14';
