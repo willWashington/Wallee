@@ -63,7 +63,7 @@ function weatherBalloon( cityID ) {
 
 function buildDayArray(data) {
     var unix_timestamp = data.list[0].dt;
-    var date = new Date(unix_timestamp*1000);    
+    var date = new Date(unix_timestamp*1000);
     daysToDisplay = [addDays(date,1), addDays(date,2), addDays(date,3), addDays(date,4), addDays(date,5)];    
     dataMachine(data);    
     //this may cause wrong dates in data as the time is GMT and we are displaying EST - figure out how to convert
@@ -313,11 +313,6 @@ function drawWeather( d ) {
     document.getElementById('day5Icon').src="https://openweathermap.org/img/w/" + day5Icon + "d.png";    
     document.getElementById('day5High').innerHTML = "High: " + day5High.split('.')[0] + '&deg;F';
     document.getElementById('day5Low').innerHTML = "Low: " + day5Low.split('.')[0] + '&deg;F';
-    
-    document.getElementById('radar').src="https://tile.openweathermap.org/map/precipitation_new/7/35.9424/83.9575.png?appid=0a3f9d42c2422fd058ffc13886c2cc14"; 
-
-//https://openweathermap.org/weathermap?basemap=map&cities=false&layer=precipitation&lat=35.9424&lon=-83.9575&zoom=7
-//https://tile.openweathermap.org/map/precipitation/7/35.9424/83.9575.png?appid={api_key}
-
 }
+
 //EndFunctions

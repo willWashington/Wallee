@@ -65,3 +65,10 @@ h1 {
 #display.rainy {
     background-image: linear-gradient(to right top, #637c7b, #718e8c, #7ea09e, #8db2b0, #9bc5c3);
 }
+
+#mapid { 
+    height: 50%; 
+    position:absolute; 
+    width: 80%; 
+    top: 45%;
+}
