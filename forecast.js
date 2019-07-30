@@ -46,7 +46,7 @@ var day5Day = getDayName(daysToDisplay[4]);
 //Functions
 window.onload = function () {
     weatherBalloon(4647282); //allow user to input the city and convert it to city code by querying city.list.json
-    setTimeout(loadNextPage, 10000);
+    // setTimeout(loadNextPage, 10000);
 }
 
 function loadNextPage() {
