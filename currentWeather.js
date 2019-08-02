@@ -14,7 +14,7 @@ function weatherBalloon(cityID) {
 
 window.onload = function () {
   weatherBalloon(4647282);
-  // setTimeout(loadNextPage, 10000);
+  setTimeout(loadNextPage, 10000);
 }
 
 function loadNextPage() {

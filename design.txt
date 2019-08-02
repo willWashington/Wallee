@@ -1,0 +1,6 @@
+forecast redesign {
+    create data object that houses json data
+    create day object that houses day data
+    foreach day from tomorrow till tomorrow+4
+    populate day object from data object and build/display day
+}
