@@ -6,3 +6,4 @@ forecast redesign {
 }
 
 change maplayers to center and mark the lat/long for the zip entered rather than a set value
+fix current weather page
