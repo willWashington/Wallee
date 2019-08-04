@@ -1,23 +1,13 @@
+window.onresize = function(){ location.reload(); }
+
 //variables
 let daysToDisplay = []; //days to display
 
 
-
-
-class DayData {
-    constructor(highTemps, lowtemps, icons) {
-        dayhightemps = hightemps;
-        daylowtemps = lowtemps;
-        dayicons = icons;
-    }
-}
-
-class Day {
-    constructor(high, low, icon) {
-        this.high = high;
-        this.low = low;
-        this.icon = icon;        
-    }
+var day = {
+    high: 0,
+    low: 0,
+    icon: 0,    
 }
 
 let day1HighTemps = [];
@@ -79,9 +69,10 @@ function weatherBalloon( cityID ) {
     let key = '0a3f9d42c2422fd058ffc13886c2cc14';    
     fetch('https://api.openweathermap.org/data/2.5/forecast?id=' + cityID + '&appid=' + key)
         .then(function(resp) { return resp.json() }) // Convert data to json
-            .then(function(data) {
+            .then(function(data) {                
                 buildDayArray(data);
                 drawWeather(data);
+                //console.log(data);
     })
     .catch(function() {
         // catch any errors
@@ -92,7 +83,7 @@ function buildDayArray(data) {
     let unix_timestamp = data.list[0].dt;
     let date = new Date(unix_timestamp*1000);
     daysToDisplay = [addDays(date,1), addDays(date,2), addDays(date,3), addDays(date,4), addDays(date,5)];    
-    dataMachine(data);
+    dataMachine(data);    
     //this may cause wrong dates in data as the time is GMT and we are displaying EST - figure out how to convert
 }
 function addDays(date, days) {
@@ -103,6 +94,7 @@ function addDays(date, days) {
 }
 
 function dataMachine(data) { 
+    console.log(data);
     let currentDate = new Date().getDay(); //get today's date
     for (i=0; i < data.list.length; i++) { //foreach item in the data set        
         let date = new Date(data.list[i].dt_txt).getDay(); //get the item's date        
@@ -112,7 +104,11 @@ function dataMachine(data) {
             notDayDate = notDayDate.getTime()/1000; //create unix timestamp for day sans time
             if (notDayDate == daysToDisplay[0].getTime()/1000) { //if the day being looked at is the first we want to display   
                 let icon = data.list[i].weather[0].icon; //get the icon for the period of time we're looking at
-                icon = icon.substr(0,icon.indexOf('d')); //parse the icon string to only select the number
+                if (icon.includes('d')) { //parse the icon string to only select the number
+                    icon = icon.substr(0,icon.indexOf('d'));
+                } else {
+                    icon = icon.substr(0,icon.indexOf('n'));
+                }                                
                 day1Icons.push(icon); //push the number to the icon array container
                 let tempHighFloat = parseFloat(data.list[i].main.temp_max); //get the high temps for the day while iterating and convert it to a float
                 let tempLowFloat = parseFloat(data.list[i].main.temp_min); //get the low temps for the day while iterating and convert it to a float                
@@ -123,7 +119,11 @@ function dataMachine(data) {
             }
             if (notDayDate == daysToDisplay[1].getTime()/1000) { 
                 let icon = data.list[i].weather[0].icon;
-                icon = icon.substr(0,icon.indexOf('d'));
+                if (icon.includes('d')) {
+                    icon = icon.substr(0,icon.indexOf('d'));
+                } else {
+                    icon = icon.substr(0,icon.indexOf('n'));
+                }                
                 day2Icons.push(icon);
                 let tempHighFloat = parseFloat(data.list[i].main.temp_max); 
                 let tempLowFloat = parseFloat(data.list[i].main.temp_min); 
@@ -134,7 +134,11 @@ function dataMachine(data) {
             }
             if (notDayDate == daysToDisplay[2].getTime()/1000) { 
                 let icon = data.list[i].weather[0].icon;
-                icon = icon.substr(0,icon.indexOf('d'));
+                if (icon.includes('d')) {
+                    icon = icon.substr(0,icon.indexOf('d'));
+                } else {
+                    icon = icon.substr(0,icon.indexOf('n'));
+                }                
                 day3Icons.push(icon);
                 let tempHighFloat = parseFloat(data.list[i].main.temp_max); 
                 let tempLowFloat = parseFloat(data.list[i].main.temp_min); 
@@ -145,7 +149,11 @@ function dataMachine(data) {
             }
             if (notDayDate == daysToDisplay[3].getTime()/1000) { 
                 let icon = data.list[i].weather[0].icon;
-                icon = icon.substr(0,icon.indexOf('d'));
+                if (icon.includes('d')) {
+                    icon = icon.substr(0,icon.indexOf('d'));
+                } else {
+                    icon = icon.substr(0,icon.indexOf('n'));
+                }                
                 day4Icons.push(icon);
                 let tempHighFloat = parseFloat(data.list[i].main.temp_max); 
                 let tempLowFloat = parseFloat(data.list[i].main.temp_min); 
@@ -156,22 +164,26 @@ function dataMachine(data) {
             }
             if (notDayDate == daysToDisplay[4].getTime()/1000) { 
                 let icon = data.list[i].weather[0].icon;
-                icon = icon.substr(0,icon.indexOf('d'));
+                if (icon.includes('d')) {
+                    icon = icon.substr(0,icon.indexOf('d'));
+                } else {
+                    icon = icon.substr(0,icon.indexOf('n'));
+                }                                
                 day5Icons.push(icon);
                 let tempHighFloat = parseFloat(data.list[i].main.temp_max); 
                 let tempLowFloat = parseFloat(data.list[i].main.temp_min); 
                 day5HighTemps.push(tempHighFloat); 
                 day5LowTemps.push(tempLowFloat);
-                day5Day = data.list[i].dt_txt;
+                day5Day = data.list[i].dt_txt;                
                 day5Date = data.list[i].dt_txt;
             }
         }
-    }
+    }        
     findHighAndLowAndIcon();
 }
 
 function findHighAndLowAndIcon() {
-    //day1    
+    //day1
     for(i=0; i < day1HighTemps.length; i++) { //for every temp in the list of highs
         for(j=0; j < day1HighTemps.length; j++) { //for every other temp in the list of highs
             if (day1HighTemps[j] > day1HighTemps[i]) { //if the temp is higher than the other temp
@@ -195,8 +207,6 @@ function findHighAndLowAndIcon() {
             }
         }
     }
-    var day1 = new Day(day1High, day1Low, day1Icon);
-    console.log(day1);
     //day2
     for(i=0; i < day2HighTemps.length; i++) { //for every temp in the list of highs
         for(j=0; j < day2HighTemps.length; j++) { //for every other temp in the list of highs
@@ -284,12 +294,14 @@ function findHighAndLowAndIcon() {
             }
         }
     }
-    for(i=0; i < day5Icons.length; i++) { //for every temp in the list of Lows
-        for(j=0; j < day5Icons.length; j++) { //for every other temp in the list of Lows
-            if (day5Icons[j] > day5Icons[i]) { //if the temp is Lower than the other temp
-                if (day5Icons[j] != 50) { //ignore possible mist icon from api https://openweathermap.org/weather-conditions
-                    day5Icon = day5Icons[j]; //the Low value equals the Lower of the two
+    for(i=0; i < day5Icons.length; i++) { //for every temp in the list of Lows        
+        for(j=0; j < day5Icons.length; j++) { //for every other temp in the list of Lows            
+            if (day5Icons[j] > day5Icons[i]) { //if the temp is Lower than the other temp                                
+                if (day5Icons[j] != 50) { //ignore possible mist icon from api https://openweathermap.org/weather-conditions                    
+                    day5Icon = day5Icons[j]; //the Low value equals the Lower of the two                    
                 }
+            } else {                
+                day5Icon = day5Icons[i];                                
             }
         }
     }
@@ -317,35 +329,103 @@ function getDayName(dateStr, locale)
     day: "numeric"});
 }
 
-function drawWeather( d ) { 
+function drawWeather( d ) {    
     let w = window.innerWidth;
-    console.log("window width = " + w);
-    //if window is less than 650, simplify interface
+    let smallscreen = false;
+    console.log(w);
+    if (w <= 650) {
+        smallscreen = true;
+    }
+
     
-    document.getElementById('day1Day').innerHTML = daysToDisplay[0].toString().split(' ')[0];    
-    document.getElementById('day1Icon').src="https://openweathermap.org/img/w/" + day1Icon + "d.png";    
+    let currentTime = new Date();
+    let timestring = currentTime.toString();    
+    let splitstr = timestring.split(' ')[4];
+    let timesplit = splitstr.split(':')[0];    
+    let iconstring = '';    
+    if (timesplit > 06 && timesplit < 20) {
+        iconstring = 'd';
+    } else {
+        iconstring = 'n';
+    }
+    //the above determines if it's dark outside and changes the icon accordingly        
+    document.getElementById('day1Day').innerHTML = daysToDisplay[0].toString().split(' ')[0];
+    document.getElementById('day1Icon').src="https://openweathermap.org/img/w/" + day1Icon + iconstring + ".png";    
     document.getElementById('day1High').innerHTML = "High: " + day1High.split('.')[0] + '&deg;F';
     document.getElementById('day1Low').innerHTML = "Low: " + day1Low.split('.')[0] + '&deg;F';
 
     document.getElementById('day2Day').innerHTML = daysToDisplay[1].toString().split(' ')[0];    
-    document.getElementById('day2Icon').src="https://openweathermap.org/img/w/" + day2Icon + "d.png";    
+    document.getElementById('day2Icon').src="https://openweathermap.org/img/w/" + day2Icon + iconstring + ".png";
     document.getElementById('day2High').innerHTML = "High: " + day2High.split('.')[0] + '&deg;F';
     document.getElementById('day2Low').innerHTML = "Low: " + day2Low.split('.')[0] + '&deg;F';
 
     document.getElementById('day3Day').innerHTML = daysToDisplay[2].toString().split(' ')[0];    
-    document.getElementById('day3Icon').src="https://openweathermap.org/img/w/" + day3Icon + "d.png";    
+    document.getElementById('day3Icon').src="https://openweathermap.org/img/w/" + day3Icon + iconstring + ".png";
     document.getElementById('day3High').innerHTML = "High: " + day3High.split('.')[0] + '&deg;F';
     document.getElementById('day3Low').innerHTML = "Low: " + day3Low.split('.')[0] + '&deg;F';
 
     document.getElementById('day4Day').innerHTML = daysToDisplay[3].toString().split(' ')[0];    
-    document.getElementById('day4Icon').src="https://openweathermap.org/img/w/" + day4Icon + "d.png";    
+    document.getElementById('day4Icon').src="https://openweathermap.org/img/w/" + day4Icon + iconstring + ".png";
     document.getElementById('day4High').innerHTML = "High: " + day4High.split('.')[0] + '&deg;F';
     document.getElementById('day4Low').innerHTML = "Low: " + day4Low.split('.')[0] + '&deg;F';
 
     document.getElementById('day5Day').innerHTML = daysToDisplay[4].toString().split(' ')[0];       
-    document.getElementById('day5Icon').src="https://openweathermap.org/img/w/" + day5Icon + "d.png";    
+    document.getElementById('day5Icon').src="https://openweathermap.org/img/w/" + day5Icon + iconstring + ".png";
     document.getElementById('day5High').innerHTML = "High: " + day5High.split('.')[0] + '&deg;F';
     document.getElementById('day5Low').innerHTML = "Low: " + day5Low.split('.')[0] + '&deg;F';
+
+        if (smallscreen) {
+        document.getElementById('day1High').innerHTML = day1High.split('.')[0] + '&deg;F';
+        document.getElementById('day1Low').innerHTML = day1Low.split('.')[0] + '&deg;F';
+
+        document.getElementById('day2High').innerHTML = day2High.split('.')[0] + '&deg;F';
+        document.getElementById('day2Low').innerHTML = day2Low.split('.')[0] + '&deg;F';
+
+        document.getElementById('day3High').innerHTML = day3High.split('.')[0] + '&deg;F';
+        document.getElementById('day3Low').innerHTML = day3Low.split('.')[0] + '&deg;F';
+
+        document.getElementById('day4High').innerHTML = day4High.split('.')[0] + '&deg;F';
+        document.getElementById('day4Low').innerHTML = day4Low.split('.')[0] + '&deg;F';
+
+        document.getElementById('day5High').innerHTML = day5High.split('.')[0] + '&deg;F';
+        document.getElementById('day5Low').innerHTML = day5Low.split('.')[0] + '&deg;F';
+
+        let daystrings = document.getElementsByClassName('daystring');
+        for (let i = 0; i < daystrings.length; i++) {
+            console.log(daystrings[i].innerHTML);
+            if (daystrings[i].innerHTML === 'Mon') {                
+                daystrings[i].innerHTML = 'M';
+            }
+            if (daystrings[i].innerHTML === 'Tue') {
+                daystrings[i].innerHTML = 'T';
+            }
+            if (daystrings[i].innerHTML === 'Wed') {                
+                daystrings[i].innerHTML = 'W';
+            }
+            if (daystrings[i].innerHTML === 'Thu') {
+                daystrings[i].innerHTML = 'Th';
+            }
+            if (daystrings[i].innerHTML === 'Fri') {
+                daystrings[i].innerHTML = 'F';
+            }
+            if (daystrings[i].innerHTML === 'Sat') {
+                daystrings[i].innerHTML = 'S';
+            }
+            if (daystrings[i].innerHTML === 'Sun') {
+                daystrings[i].innerHTML = 'Su';
+            }
+        }
+        let icons = document.getElementsByClassName('icons');
+        for (let i = 0; i < icons.length; i++) {
+            icons[i].classList.add('hide');
+        }
+
+        let daydivs = document.getElementsByClassName('days');
+        for (let i = 0; i < daydivs.length; i++) {
+            daydivs[i].classList.add('smalltext');
+        }
+        
+    }
 }
 
 //EndFunctions
