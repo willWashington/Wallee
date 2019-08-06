@@ -10,6 +10,11 @@ var day = {
     icon: 0,    
 }
 
+let coords = {
+    lat: 0,
+    long: 0
+}
+
 let day1HighTemps = [];
 let day1LowTemps = [];
 let day1Icons = [];
@@ -54,8 +59,8 @@ let day5Day = getDayName(daysToDisplay[4]);
 
 //Functions
 window.onload = function() {
-    weatherBalloon( 4647282 ); //allow user to input the city and convert it to city code by querying city.list.json
-    // setTimeout(loadNextPage, 10000);
+    weatherBalloon( localStorage.zip ); //allow user to input the city and convert it to city code by querying city.list.json
+    setTimeout(loadNextPage, 10000);
 }
 
 function loadNextPage() {
@@ -72,7 +77,10 @@ function weatherBalloon( cityID ) {
             .then(function(data) {                
                 buildDayArray(data);
                 drawWeather(data);
-                //console.log(data);
+                //console.log(data);                
+                coords.lat = data.city.coord.lat;                
+                coords.long = data.city.coord.lon;                
+                drawMap(coords);
     })
     .catch(function() {
         // catch any errors

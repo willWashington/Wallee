@@ -1,4 +1,7 @@
-var mymap = L.map('mapid').setView([34.7465, -92.2896], 5);
+
+function drawMap(coords) {    
+//var mymap = L.map('mapid').setView([34.7465, -92.2896], 5);
+var mymap = L.map('mapid').setView([coords.lat, coords.long], 5);
 
 //Build Map Tile
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -9,6 +12,10 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     //https://account.mapbox.com/access-tokens/
 }).addTo(mymap);
 
-var marker = L.marker([36.0445, -84.3444]).addTo(mymap); //mark my home town
+var marker = L.marker([coords.lat, coords.long]).addTo(mymap); //mark my home town
 
-mymap.addLayer(new L.TileLayer("http://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=0a3f9d42c2422fd058ffc13886c2cc14")); //add OWM precipitation layer
+mymap.addLayer(
+    new L.TileLayer(
+            "http://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=0a3f9d42c2422fd058ffc13886c2cc14")); //add OWM precipitation layer
+
+}
