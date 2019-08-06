@@ -10,7 +10,6 @@ button.onclick = function submit() {
         document.getElementById('invalid').style.display = "block";
     } else {
         localStorage.setItem('zip', fieldvalue);    
-    //window.location = "https://willwashington.github.io/Wallee/index.html"
-    window.location.pathname = "C:/Users/NEO/OneDrive/repos/C%23%20-%20Web%20-%20Core%20-%20ASP.NET%20-%20etc/web/wallee/current.html";
+    window.location = "https://willwashington.github.io/Wallee/current.html"    
     }
 }

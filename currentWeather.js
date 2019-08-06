@@ -11,8 +11,8 @@ function weatherBalloon(cityID) {
       // catch any errors
     });        
     let url = window.location.href;
-    let inc = url.includes('index');
-    if (!inc) {
+    let inc = url.includes('current');
+    if (inc) {
       setTimeout(loadNextPage, 10000);
     }
 }
