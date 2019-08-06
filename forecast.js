@@ -64,7 +64,7 @@ window.onload = function() {
 }
 
 function loadNextPage() {
-    window.location = "https://willwashington.github.io/Wallee/index.html"
+    window.location = "https://willwashington.github.io/Wallee/current.html"
     //window.location.pathname = 'C:/Users/NEO/OneDrive/repos/C%23%20-%20Web%20-%20Core%20-%20ASP.NET%20-%20etc/web/wallee/forecast.html'
     //window.location.pathname = 'https://willwashington.github.io/Wallee/forecast.html'
     //change this to the location of the website on disk or in repo
