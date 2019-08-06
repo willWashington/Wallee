@@ -12,7 +12,6 @@ function weatherBalloon(cityID) {
     });        
     let url = window.location.href;
     let inc = url.includes('current');
-    console.log(inc);
     if (inc) {
       setTimeout(loadNextPage, 10000);
     }
