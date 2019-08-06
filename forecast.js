@@ -72,7 +72,7 @@ function loadNextPage() {
 
 function weatherBalloon( cityID ) {
     let key = '0a3f9d42c2422fd058ffc13886c2cc14';    
-    fetch('https://api.openweathermap.org/data/2.5/forecast?id=' + cityID + '&appid=' + key)
+    fetch('https://api.openweathermap.org/data/2.5/forecast?zip=' + cityID + '&appid=' + key)
         .then(function(resp) { return resp.json() }) // Convert data to json
             .then(function(data) {                
                 buildDayArray(data);
