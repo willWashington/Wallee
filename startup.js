@@ -1,15 +1,11 @@
-
-
-
 let button = document.getElementById('formbtn');
 button.onclick = function submit() {
-    event.preventDefault();        
-    let fieldvalue = document.getElementById('zipfield').value;
-    var isnum = /^\d+$/.test(fieldvalue);    
-    if (fieldvalue.length < 5 && !isnum) {
+    event.preventDefault();
+    let fieldvalue = document.getElementById('zipfield').value;    
+    if(isNaN(fieldvalue)){
         document.getElementById('invalid').style.display = "block";
     } else {
         localStorage.setItem('zip', fieldvalue);    
-    window.location = "https://willwashington.github.io/Wallee/current.html"    
+        window.location = "https://willwashington.github.io/Wallee/current.html"    
     }
 }
