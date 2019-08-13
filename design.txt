@@ -10,3 +10,7 @@ fix current weather page
 
 add desc to index.html
 apply form css to index.html
+
+create a data factory to pull in all the api request results and store them locally every X minutes
+local storage for Chrome can be determined here:
+https://arty.name/localstorage.html
