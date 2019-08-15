@@ -11,6 +11,8 @@ body {
 	display:none;
 }
 
+
+
 .smalltext {
 	font-size: 10px;
 }
@@ -27,7 +29,6 @@ body {
     box-shadow: 7px 7px 12px -2px rgba(0, 0, 0, 0.75);
     /* padding: 8%; */
 }
-
 
 #display {
     position: absolute;
