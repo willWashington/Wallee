@@ -1,0 +1,11 @@
+create a data factory to pull in all the api request results and store them locally every X minutes
+local storage for Chrome can be determined here:
+https://arty.name/localstorage.html
+
+apod is ready
+need to ask if user wants it
+build data factory to store api data to restrict call volume
+
+build swap controller to swap pages on a timer
+
+
