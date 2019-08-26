@@ -9,39 +9,57 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
+    <title>Wallee - The Interest Carousel</title>
+    <meta name="description" content="Wallee is a carousel display that displays various things a person may be interested in including:
+        Weather, Astronomy Pictures, News, etc.">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="mainTheme.css">  
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>      
-    <script src="currentWeather.js"></script>
+    <link rel="stylesheet" href="css/custom-resets.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/screwdriver.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="scripts/responsive.js"></script>
 </head>
 
 <body>
     <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <div class="form-style-3">
-            <p style="color: #FFD2D2;">Wallee is a web display carousel of various pages.<br>
-                It currently includes weather data for any zipcode you enter.<br>              
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser.
+            Please <a href="#">upgrade your browser</a> to improve your experience.
+        </p>
+    <![endif]-->
 
 
-            </p>
-            <form id="zipform">
-            <fieldset><legend>User Data</legend>
-            <label for="field1">
-                <span>Zipcode<span class="required">*</span>
-                </span>
-                <input type="text" class="input-field" name="field1" id="zipfield" value="" />
-            </label>
-            <div style="display: none;" id="invalid"><span>Please enter a valid zipcode.</span></div>
-            
-            <input id="formbtn" type="submit" value="Submit">
-            </fieldset>
-            </form>
-            </div>            
-            <script src="startup.js"></script>    
+    <div id="allcontainer">
+        <div id="landing">
+            <h1 style="padding: 0;" class="center">Welcome to Wallee</h1>
+            <hr>
+            <h3 class="center" style="color: rgb(233, 233, 233);">What are you interested in?</h3>
+
+            <div class="choice-container">
+                <div class="parent">
+                    <input id="weathercheck" class="cbox" type="checkbox" />
+                    <label class="add" for="cbox">Local Weather</label>
+                </div>
+
+                <div class="parent">
+                    <input id="wnewscheck" class="cbox" type="checkbox" />
+                    <label class="add" for="cbox">World News</label>
+                </div>
+
+                <div class="parent">
+                    <input id="astroncheck" class="cbox" type="checkbox" />
+                    <label class="add" for="cbox">Astronomy</label>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <p>This page is currently under reconstruction. Please visit later.</p>
+        </div>
+
+
+    </div>
+    <script src="scripts/screwdriver.js"></script>
 </body>
 
 </html>

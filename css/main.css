@@ -1,0 +1,25 @@
+* {
+    transition: 0.4s all;
+}
+
+body {
+    background-color: #232531;
+}
+
+#allcontainer {
+    width: 90vw;
+    height: 90vh;
+    margin: auto;
+    margin-top: 5vh;
+    box-shadow: 7px 7px 12px -2px rgba(0, 0, 0, 0.75);
+    background-image: linear-gradient(to right top, #b2c5ce, #99bfd1, #7cc3df, #40b2df, #05a6e0);
+}
+
+.center {
+    text-align: center;
+}
+
+#footer {
+    margin: auto;
+    text-align: center;
+}
