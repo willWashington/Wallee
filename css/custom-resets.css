@@ -41,19 +41,19 @@ hr {
 
   h1 {
     margin: 1vh;
-    font-size: 6vw;
+    font-size: 8vw;
     font-family: 'Roboto', sans-serif;
   }
 
   h2 {
     margin: 1vh;
-    font-size: 5vw;
+    font-size: 7vw;
     font-family: 'Roboto', sans-serif;
   }
 
   h3 {
     margin: 1vh;
-    font-size: 4.5vw;
+    font-size: 6vw;
     font-family: 'Roboto', sans-serif;
   }
 
@@ -62,10 +62,15 @@ hr {
     font-size: 4vw;
     font-family: 'Lato', sans-serif;
   }
+  label span {
+    margin: 1.2vh;
+    font-size: 3.5vw;
+    font-family: 'Lato', sans-serif;
+  }
 }
 
-@media only screen and (max-width: 900px) {
-  label {
+@media only screen and (max-width: 1200px) {
+  label, span {
     font-size: 1.5vw;
     font-family: 'Lato', sans-serif;
   }

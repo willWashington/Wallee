@@ -1,0 +1,35 @@
+/* BOUNCY BUTTON https://fdossena.com/?p=html5cool/buttons/i.frag */
+.bouncy {
+    animation:bouncy 8s infinite linear;
+    position:relative;
+}
+@keyframes bouncy {
+    0%{top:0em}
+    40%{top:0em}
+    43%{top:-0.9em}
+    46%{top:0em}
+    48%{top:-0.4em}
+    50%{top:0em}
+    100%{top:0em;}
+}
+button {
+    padding:10px;
+    background-color:#232531;
+    border:0.16em solid rgba(255,255,255,0);
+    border-color: #f14e4e;
+    box-sizing: border-box;
+    font-size: 0.8vw;
+    font-family: 'Lato', sans-serif;
+    color:#FFFFFF;
+    text-align:center;
+}
+button:hover {
+    border-color: #4ef18f;
+}
+@media all and (max-width:30em){
+    button {
+        display:block;
+        margin:0.2em auto;
+        /* display:inline-block; */
+    }
+}
