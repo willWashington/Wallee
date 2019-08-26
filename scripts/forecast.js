@@ -59,7 +59,7 @@ let day5Day = getDayName(daysToDisplay[4]);
 
 //Functions
 window.onload = function() {
-    weatherBalloon( localStorage.zip ); //allow user to input the city and convert it to city code by querying city.list.json
+    getAPODData( localStorage.zip ); //allow user to input the city and convert it to city code by querying city.list.json
     setTimeout(loadNextPage, 10000);
 }
 
@@ -70,14 +70,14 @@ function loadNextPage() {
     //change this to the location of the website on disk or in repo
   }
 
-function weatherBalloon( cityID ) {
+function getAPODData( cityID ) {
     let key = '0a3f9d42c2422fd058ffc13886c2cc14';    
     fetch('https://api.openweathermap.org/data/2.5/forecast?zip=' + cityID + '&appid=' + key)
         .then(function(resp) { return resp.json() }) // Convert data to json
-            .then(function(data) {                
+            .then(function(data) {
                 buildDayArray(data);
                 drawWeather(data);
-                //console.log(data);                
+                //console.log(data);
                 coords.lat = data.city.coord.lat;                
                 coords.long = data.city.coord.lon;                
                 drawMap(coords);
@@ -302,14 +302,14 @@ function findHighAndLowAndIcon() {
             }
         }
     }
-    for(i=0; i < day5Icons.length; i++) { //for every temp in the list of Lows        
-        for(j=0; j < day5Icons.length; j++) { //for every other temp in the list of Lows            
-            if (day5Icons[j] > day5Icons[i]) { //if the temp is Lower than the other temp                                
+    for(i=0; i < day5Icons.length; i++) { //for every temp in the list of Lows
+        for(j=0; j < day5Icons.length; j++) { //for every other temp in the list of Lows
+            if (day5Icons[j] > day5Icons[i]) { //if the temp is Lower than the other temp
                 if (day5Icons[j] != 50) { //ignore possible mist icon from api https://openweathermap.org/weather-conditions                    
                     day5Icon = day5Icons[j]; //the Low value equals the Lower of the two                    
                 }
-            } else {                
-                day5Icon = day5Icons[i];                                
+            } else {
+                day5Icon = day5Icons[i];
             }
         }
     }
@@ -333,24 +333,23 @@ function convertToFahrenheit(temp) {
 function getDayName(dateStr, locale)
 {
     let date = new Date(dateStr);
-    return date.toLocaleDateString(locale, {timezone: 'UTC', weekday: "short", year: "2-digit", month: "short",   
+    return date.toLocaleDateString(locale, {timezone: 'UTC', weekday: "short", year: "2-digit", month: "short",
     day: "numeric"});
 }
 
-function drawWeather( d ) {    
+function drawWeather( d ) {
     let w = window.innerWidth;
     let smallscreen = false;
     console.log(w);
     if (w <= 650) {
         smallscreen = true;
     }
-
     
     let currentTime = new Date();
-    let timestring = currentTime.toString();    
+    let timestring = currentTime.toString();
     let splitstr = timestring.split(' ')[4];
-    let timesplit = splitstr.split(':')[0];    
-    let iconstring = '';    
+    let timesplit = splitstr.split(':')[0];
+    let iconstring = '';
     if (timesplit > 06 && timesplit < 20) {
         iconstring = 'd';
     } else {

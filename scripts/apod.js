@@ -1,7 +1,7 @@
 //api key = 7e6705968fb042c49fbb3a18ee93dfc6
 //https://newsapi.org/v2/top-headlines?country=us&apiKey=7e6705968fb042c49fbb3a18ee93dfc6
 
-function weatherBalloon(cityID) {
+function getAPODData(cityID) {
     //var key = '0a3f9d42c2422fd058ffc13886c2cc14';
     fetch('https://api.nasa.gov/planetary/apod?api_key=z19HNBZ0BjnuYFxkQwIIcDVayCijNqOFTk7mRtIc')
       .then(function (resp) {
@@ -23,19 +23,17 @@ function weatherBalloon(cityID) {
   
   window.onload = function () {
     //zipcode = localStorage.zip;
-    weatherBalloon();
+    getAPODData();
   }
 
   function buildDisplay(data) {
     let img = document.getElementById('bodyImg');
     let desc = document.getElementById('apodDesc');    
-    img.src = data.hdurl;
-    console.log(data.hdurl);
-    // img.style.maxHeight = '100%';
-    // img.style.height = '50%';
-    // img.style.maxWidth = '100%';
+    img.src = data.hdurl;    
     desc.innerHTML = data.explanation;
   }
+  
+  //TODAY APOD pulled a youtube URL so we need to test if URL contains youtube and insert into video element instead of img element
 
   //convert to news pull
   //move news and weather pull to separate script

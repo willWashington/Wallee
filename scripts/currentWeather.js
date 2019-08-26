@@ -19,7 +19,7 @@ function weatherBalloon(cityID) {
 
 window.onload = function () {
   zipcode = localStorage.zip;
-  weatherBalloon(zipcode);
+  //weatherBalloon(zipcode);
 }
 
 function loadNextPage() {

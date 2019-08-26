@@ -6,6 +6,6 @@ button.onclick = function submit() {
         document.getElementById('invalid').style.display = "block";
     } else {
         localStorage.setItem('zip', fieldvalue);    
-        window.location = "https://willwashington.github.io/Wallee/current.html"    
+        window.location = "https://willwashington.github.io/Wallee/current.html";
     }
 }
