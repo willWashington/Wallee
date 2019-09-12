@@ -19,13 +19,28 @@ body {
     text-align: center;
 }
 .bottom {
-    margin-top: 50vh;
+    /* margin-top: 70%; */
 }
 
 #footer {
     margin: auto;
+    width: 75vw;
+    color: black;
+    font-size: 3vw;
+    background-color: tomato;
     text-align: center;
-    position: absolute;
-    bottom: 0;
 }
 
+.text-white {
+    font-size: 24px;
+    font-family: "Ovo";
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.75);
+  }
+
+  .text-black {
+    font-size: 24px;
+    font-family: "Ovo";
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 2px 2px rgba(99, 99, 99, 0.75);
+  }
