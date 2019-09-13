@@ -11,10 +11,12 @@ $red: #CC3333;
 
 .parent {
   margin: 5px;
-  width: 120px;
-  padding: 10px;
+  margin-top: 35px;
+  width: 160px;
+  padding: 20px;
   display: inline-block;
   text-align: center;
+
   box-shadow: 3px 3px 4px -2px rgba(0, 0, 0, 0.75);
   background: #232531;
 
@@ -32,6 +34,7 @@ $red: #CC3333;
 }
 
 .cbox {
+  font-size: 1vw;
   margin: auto;
   margin-bottom: 5px;
   margin-top: 10px;

@@ -1,8 +1,10 @@
 let checked = $('.cbox');
+let zip = $('#zipform');
 
 let requestweather = false;
 let requestwnews = false;
 let requestastronomy = false;
+
 
 $(checked).click(function (event) {
   if ($(event.target).is(":checked")) {
@@ -22,9 +24,11 @@ function clickprocessor(target) {
       if ($(target).is(":checked")) {
         console.log('[USER REQUEST] Weather Requested');
         window.localStorage.setItem('weather', 'true');
+        zip.fadeIn('slow');
       } else {
         console.log('[USER REQUEST] Weather Request Rescinded');
         window.localStorage.setItem('weather', 'false');
+        zip.fadeOut('slow');
       }
       break;
 
@@ -52,6 +56,7 @@ function clickprocessor(target) {
   }
 }
 
-// Made by Sasha Tran - https://twitter.com/sa_sha26
+
+// Screwdriver.js Inspired by Sasha Tran - https://twitter.com/sa_sha26
 // https://codepen.io/sashatran/pen/dWNYEv
 // Mutilated by William Washington - https://github.com/willwashington

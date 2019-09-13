@@ -1,8 +1,17 @@
+$watermelon: #fd5b78;
+$mint: #aaf0d1;
+$blizzardblue: #50bfe6;
+$shockingpink: #ff6eff;
+$rorange: #ff681f;
+$laserlemon: #FFFF66;
+$navy: #0066cc;
+$blueyonder: #7a89b8;
+$whitepowder: #fefefa;
+
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -14,9 +23,7 @@ body {
   height: 90vh;
   margin: auto;
   margin-top: 5vh;
-  -webkit-box-shadow: 7px 7px 12px -2px rgba(0, 0, 0, 0.75);
-          box-shadow: 7px 7px 12px -2px rgba(0, 0, 0, 0.75);
-  background-image: -webkit-gradient(linear, left bottom, right top, from(#b2c5ce), color-stop(#99bfd1), color-stop(#7cc3df), color-stop(#40b2df), to(#05a6e0));
+  box-shadow: 7px 7px 12px -2px rgba(0, 0, 0, 0.75);
   background-image: linear-gradient(to right top, #b2c5ce, #99bfd1, #7cc3df, #40b2df, #05a6e0);
   position: relative;
   overflow: hidden;
@@ -42,14 +49,14 @@ body {
 .text-white {
   font-size: 24px;
   font-family: "Ovo";
-  color: white;
+  color: rgb(255, 255, 255);
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.75);
 }
 
 .text-black {
   font-size: 24px;
   font-family: "Ovo";
-  color: black;
+  color: rgb(0, 0, 0);
   text-shadow: 0px 2px 2px rgba(99, 99, 99, 0.75);
 }
 
@@ -64,34 +71,15 @@ body {
 }
 
 input[type="text"] {
-  background-color: #fefefa;
+  background-color: $whitepowder;
   padding: 10px;
   font-size: 24px;
   margin: 0.5em;
   border: none;
 }
 
-::-webkit-input-placeholder {
-  color: #ff681f;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-}
-
-:-ms-input-placeholder {
-  color: #ff681f;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-}
-
-::-ms-input-placeholder {
-  color: #ff681f;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-}
-
 ::placeholder {
-  color: #ff681f;
+  color: $rorange;
   text-align: center;
   font-family: 'Roboto', sans-serif;
 }
-/*# sourceMappingURL=main.css.map */

@@ -7,18 +7,27 @@
 <!--<![endif]-->
 
 <head>
+    <title>Wallee - The Interest Carousel</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Wallee - The Interest Carousel</title>
     <meta name="description" content="Wallee is a carousel display that displays various things a person may be interested in including:
         Weather, Astronomy Pictures, News, etc.">
-    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap" rel="stylesheet">
+
+    <!-- INTERNAL STYLESHEETS -->
     <link rel="stylesheet" href="css/custom-resets.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/screwdriver.css">
     <link rel="stylesheet" href="css/bouncybuttons.css">
+
+    <!-- EXTERNAL SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- INTERNAL SCRIPTS -->
+    <script src="scripts/prettylogger.js"></script>
     <script src="scripts/responsive.js"></script>
 </head>
 
@@ -29,12 +38,13 @@
         </p>
     <![endif]-->
 
+            <!-- BODY -->
 
     <div id="allcontainer">
         <div id="landing">
-            <h1 style="padding: 0;" class="center">Welcome to Wallee</h1>
+            <h1 class="center text-white">Welcome to Wallee</h1>
             <hr>
-            <h3 class="center" style="color: rgb(233, 233, 233);">What are you interested in?</h3>
+            <h3 class="center text-black" id="interest-prompt">What are you interested in?</h3>
 
             <div class="choice-container">
                 <div class="parent">
@@ -51,21 +61,22 @@
                     <input id="astroncheck" class="cbox" type="checkbox" />
                     <label class="add" for="cbox">Astronomy</label>
                 </div>
-                <div class="center bottom">
-                <button class="bouncy"><span>Submit</span></button>
-                </div>
             </div>
-
-        </div>
-
-
-
-
-        <div id="footer" style="color: white;">
-            <p>This page is currently under reconstruction. Please visit later.</p>
+            <div id='zipform'><input type="text" name="lname" placeholder="Enter Zipcode"><br></div>
+            <div class="center">
+                <button class="bouncy" id="submitbutton"><span id="btnspan">Submit</span></button>
+            </div>
         </div>
     </div>
+            <!-- END BODY -->
+    <div id="footer">
+        <p>This page is currently under reconstruction.</p>
+    </div>
+    <!-- LATE LOAD SCRIPTS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script> -->
+    <script src="scripts/globalanims.js"></script>
     <script src="scripts/screwdriver.js"></script>
+    <script src="scripts/statecontroller.js"></script>
 </body>
 
 </html>

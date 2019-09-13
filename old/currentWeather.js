@@ -9,7 +9,7 @@ function weatherBalloon(cityID) {
     })
     .catch(function () {
       // catch any errors
-    });        
+    });
     let url = window.location.href;
     let inc = url.includes('current');
     if (inc) {

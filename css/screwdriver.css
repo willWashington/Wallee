@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap");
-
 .choice-container {
   margin: auto;
   text-align: center;
@@ -7,12 +6,13 @@
 
 .parent {
   margin: 5px;
-  width: 120px;
-  padding: 10px;
+  margin-top: 35px;
+  width: 160px;
+  padding: 20px;
   display: inline-block;
   text-align: center;
   -webkit-box-shadow: 3px 3px 4px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 3px 3px 4px -2px rgba(0, 0, 0, 0.75);
+          box-shadow: 3px 3px 4px -2px rgba(0, 0, 0, 0.75);
   background: #232531;
 }
 
@@ -26,6 +26,7 @@
 }
 
 .cbox {
+  font-size: 1vw;
   margin: auto;
   margin-bottom: 5px;
   margin-top: 10px;
@@ -36,20 +37,19 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background: #505050;
   border-radius: 100%;
   -webkit-appearance: none;
   -webkit-box-shadow: 3px 3px 4px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 3px 3px 4px -2px rgba(0, 0, 0, 0.75);
+          box-shadow: 3px 3px 4px -2px rgba(0, 0, 0, 0.75);
 }
 
-.cbox:before,
-.cbox:after {
+.cbox:before, .cbox:after {
   position: absolute;
   content: '';
   width: 20px;
@@ -61,16 +61,14 @@
 
 .cbox:after {
   -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
-.cbox:checked:before,
-.cbox:checked:after {
+.cbox:checked:before, .cbox:checked:after {
   background: #CC3333;
   -webkit-transform: rotate(360deg);
-  transform: rotate(360deg);
+          transform: rotate(360deg);
   -webkit-transition: 0.4s all;
   transition: 0.4s all;
 }
-
 /*# sourceMappingURL=screwdriver.css.map */
