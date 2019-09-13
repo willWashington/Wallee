@@ -21,14 +21,14 @@ var stateswap = () => {
   if (btntext.text() === "Home") {
     prettylogger('user', 'Home button clicked.');
     //$(statedisplays.fadeOut('slow'));
-    $(prompt.fadeIn('fast'));
-    $(choices.fadeIn('fast'));
+    $(prompt.fadeIn('slow'));
+    $(choices.fadeIn('slow'));
     $(btntext.text('Submit'));
   } else {
     prettylogger('user', 'Submit button clicked.');
     //$(statedisplays.fadeIn('slow'));
-    $(choices.fadeOut('fast'));
-    $(prompt.fadeOut('fast'));
+    $(choices.fadeOut('slow'));
+    $(prompt.fadeOut('slow'));
     $(btntext.text('Home'));
   }
 };

@@ -10,9 +10,6 @@ redesign weather data display to fit new theme
       center weather display
         hide all other elements except home button
 
-hide what are you interested in question on submit click
-  show on home click
-
 figure out why map isn't working
 
 figure out why footer has moved up from bottom of screen
@@ -26,3 +23,6 @@ find more apis for more options
 
 
 DONE:
+
+hide what are you interested in question on submit click
+  show on home click
