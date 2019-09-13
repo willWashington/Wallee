@@ -1,3 +1,28 @@
 TODO:
 
+when submit button is clicked, call weatherballoon in apiget
+  weatherballoon will test how old the *call* for data is
+    if data is older than 4 hours, get new data
+
+redesign weather data display to fit new theme
+  include current weather
+    incorporate gradient based on current weather
+      center weather display
+        hide all other elements except home button
+
+hide what are you interested in question on submit click
+  show on home click
+
+figure out why map isn't working
+
+figure out why footer has moved up from bottom of screen
+
+world news
+
+astronomy
+
+find more apis for more options
+
+
+
 DONE:

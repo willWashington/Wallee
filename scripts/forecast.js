@@ -57,6 +57,8 @@ let day5Day = getDayName(daysToDisplay[4]);
 
 //EndNotes
 
+//Functions
+
 function getAPODData( cityID ) {
     let key = '0a3f9d42c2422fd058ffc13886c2cc14';
     fetch('https://api.openweathermap.org/data/2.5/forecast?zip=' + cityID + '&appid=' + key)

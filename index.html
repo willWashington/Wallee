@@ -22,14 +22,28 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/screwdriver.css">
     <link rel="stylesheet" href="css/bouncybuttons.css">
+    <link rel="stylesheet" href="css/weather.css">
+
+    <!-- EXTRENAL STYLESHEETS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
 
     <!-- EXTERNAL SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
 
     <!-- INTERNAL SCRIPTS -->
     <script src="scripts/prettylogger.js"></script>
     <script src="scripts/responsive.js"></script>
 </head>
+
+
+
+
+
 
 <body>
     <!--[if lt IE 7]>
@@ -38,9 +52,10 @@
         </p>
     <![endif]-->
 
-            <!-- BODY -->
+    <!-- BODY -->
 
     <div id="allcontainer">
+        <!-- LANDING DISPLAY -->
         <div id="landing">
             <h1 class="center text-large-white">Welcome to Wallee</h1>
             <hr>
@@ -67,16 +82,64 @@
                 <button class="bouncy" id="submitbutton"><span id="btnspan">Submit</span></button>
             </div>
         </div>
+        <!-- END LANDING DISPLAY -->
+
+        <!-- WEATHER DISPLAY -->
+        <div id="display">
+            <div id="forecast">
+                <div id="day1" class="days">
+                    <div id="day1Day" class="daystring"></div>
+                    <div class="icons"><img id="day1Icon" src="" alt="Weather icon"></div>
+                    <div id="day1High"></div>
+                    <div id="day1Low"></div>
+                </div>
+
+                <div id="day2" class="days">
+                    <div id="day2Day" class="daystring"></div>
+                    <div class="icons"><img id="day2Icon" src="" alt="Weather icon"></div>
+                    <div id="day2High"></div>
+                    <div id="day2Low"></div>
+                </div>
+
+                <div id="day3" class="days">
+                    <div id="day3Day" class="daystring"></div>
+                    <div class="icons"><img id="day3Icon" src="" alt="Weather icon"></div>
+                    <div id="day3High"></div>
+                    <div id="day3Low"></div>
+                </div>
+
+                <div id="day4" class="days">
+                    <div id="day4Day" class="daystring"></div>
+                    <div class="icons"><img id="day4Icon" src="" alt="Weather icon"></div>
+                    <div id="day4High"></div>
+                    <div id="day4Low"></div>
+                </div>
+
+                <div id="day5" class="days">
+                    <div id="day5Day" class="daystring"></div>
+                    <div class="icons"><img id="day5Icon" src="" alt="Weather icon"></div>
+                    <div id="day5High"></div>
+                    <div id="day5Low"></div>
+                </div>
+            </div>
+            <p>&nbsp;</p>
+            <div id="mapid"><canvas></canvas></div>
+        </div>
+        <!-- END WEATHER DISPLAY -->
+
+
     </div>
-            <!-- END BODY -->
     <div id="footer">
         <p>This page is currently under reconstruction.</p>
     </div>
+    <!-- END BODY -->
     <!-- LATE LOAD SCRIPTS -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script> -->
     <script src="scripts/globalanims.js"></script>
     <script src="scripts/screwdriver.js"></script>
     <script src="scripts/statecontroller.js"></script>
+    <script src="scripts/mapLayers.js"></script>
+    <script src="scripts/forecast.js"></script>
 </body>
 
 </html>
